@@ -25,7 +25,7 @@ class IngredientCore(models.Model):
         blank=True,
         help_text="If items are not used",
     )
-    allergens = models.CharField(max_length=50)
+    allergens = models.CharField(max_length=50, null=True, blank=True)
     life_style = models.ForeignKey(
         LifeStyleCore, null=True, blank=True, on_delete=models.SET_NULL
     )

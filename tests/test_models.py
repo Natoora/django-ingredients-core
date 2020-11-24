@@ -1,19 +1,16 @@
 from django.test import TestCase
 from .models import Ingredient
 from .factories import IngredientFactory
-from ingredients_core.factories import LifeStyleFactoryCore
 
 
 class IngredientCoreTestCase(TestCase):
     """ Ingredient Core TestCases """
 
     def setUp(self):
-        self.life_style = LifeStyleFactoryCore.create(name="Vegan")
-
         self.ingredient = IngredientFactory.create(
             list_of_ingredients="Chickpeas 50%, Extra Virgin Olive Oil 26.7% and Milk",
             allergens="This product contains milk",
-            life_style=self.life_style,
+            life_style=Ingredient.VEGAN,
             custom_attrib="Apple",
         )
 
@@ -40,7 +37,7 @@ class IngredientCoreTestCase(TestCase):
 
     # life_style
     def test_life_style(self):
-        self.assertEqual(self.ingredient.life_style.name, "Vegan")
+        self.assertEqual(self.ingredient.life_style, "VEGAN")
 
     #  TODO, add more tests
 

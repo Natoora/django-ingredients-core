@@ -1,12 +1,6 @@
 import factory
-from ingredients_core.models import IngredientCore, LifeStyleCore
-
-
-class LifeStyleFactoryCore(factory.django.DjangoModelFactory):
-    class Meta:
-        model = LifeStyleCore
-
-    name = factory.Faker("text")
+from factory.fuzzy import FuzzyChoice
+from ingredients_core.models import IngredientCore
 
 
 class IngredientFactoryCore(factory.django.DjangoModelFactory):
@@ -15,4 +9,4 @@ class IngredientFactoryCore(factory.django.DjangoModelFactory):
 
     list_of_ingredients = factory.Faker("text")
     allergens = factory.Faker("text")
-    life_style = factory.SubFactory(LifeStyleFactoryCore)
+    life_style = FuzzyChoice(IngredientCore.LIFE_STYLE_CHOICES)

@@ -1,40 +1,35 @@
 from django.db import models
 
 
-class LifeStyleCore(models.Model):
-    """
-    Lifestyle Core
-    """
-
-    name = models.CharField(
-        max_length=15, help_text="e.g: Vegan, Vegetarian, Kosher and etc"
-    )
-
-    def __str__(self):
-        return self.name
-
-
 class IngredientCore(models.Model):
     """
     Ingredient Core model
     """
 
+    VEGAN = "VEGAN"
+    VEGETARIAN = "VEGETARIAN"
+    KOSHER = "KOSHER"
+
+    LIFE_STYLE_CHOICES = (
+        (VEGAN, "Vegan"),
+        (VEGETARIAN, "Vegetarian"),
+        (KOSHER, "Kosher"),
+    )
+
     list_of_ingredients = models.CharField(
-        max_length=500,
+        max_length=1000,
         null=True,
         blank=True,
         help_text="If items are not used",
     )
     allergens = models.CharField(max_length=50, null=True, blank=True)
-    life_style = models.ForeignKey(
-        LifeStyleCore, null=True, blank=True, on_delete=models.SET_NULL
-    )
+    life_style = models.CharField(max_length=30, null=True, blank=True)
 
     class Meta:
         abstract = True
 
     def get_ingredients_items(self):
-        # Not using the IngredientItemCore
+        # Using list_of_ingredients
         if self.list_of_ingredients:
             return self.list_of_ingredients
 

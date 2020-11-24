@@ -16,14 +16,16 @@ class IngredientCore(models.Model):
         (KOSHER, "Kosher"),
     )
 
-    list_of_ingredients = models.CharField(
+    list_of_ingredients = models.TextField(
         max_length=1000,
         null=True,
         blank=True,
         help_text="If items are not used",
     )
     allergens = models.CharField(max_length=50, null=True, blank=True)
-    life_style = models.CharField(max_length=30, null=True, blank=True)
+    life_style = models.CharField(
+        max_length=30, choices=LIFE_STYLE_CHOICES, null=True, blank=True
+    )
 
     class Meta:
         abstract = True

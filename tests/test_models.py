@@ -8,7 +8,7 @@ class IngredientCoreTestCase(TestCase):
 
     def setUp(self):
         self.ingredient = IngredientFactory.create(
-            list_of_ingredients="Chickpeas 50%, Extra Virgin Olive Oil 26.7% and Milk",
+            ingredients="Chickpeas 50%, Extra Virgin Olive Oil 26.7% and Milk",
             allergens="This product contains milk",
             dietary_info=Ingredient.VEGAN,
             custom_attrib="Apple",
@@ -18,10 +18,10 @@ class IngredientCoreTestCase(TestCase):
     # Attributes from Abstract Model
     #
 
-    # list_of_ingredients
-    def test_list_of_ingredients(self):
+    # ingredients
+    def test_ingredients(self):
         self.assertEqual(
-            self.ingredient.list_of_ingredients,
+            self.ingredient.ingredients,
             "Chickpeas 50%, Extra Virgin Olive Oil 26.7% and Milk",
         )
 

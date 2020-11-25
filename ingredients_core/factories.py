@@ -7,6 +7,6 @@ class IngredientFactoryCore(factory.django.DjangoModelFactory):
     class Meta:
         model = IngredientCore
 
-    list_of_ingredients = factory.Faker("text")
+    ingredients = factory.Faker("text")
     allergens = factory.Faker("text")
     dietary_info = FuzzyChoice(IngredientCore.DIETARY_INFO_CHOICES)

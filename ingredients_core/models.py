@@ -16,7 +16,7 @@ class IngredientCore(models.Model):
         (KOSHER, "Kosher"),
     )
 
-    list_of_ingredients = models.TextField(
+    ingredients = models.TextField(
         max_length=1000,
         null=True,
         blank=True,
@@ -38,8 +38,8 @@ class IngredientCore(models.Model):
 
     def get_ingredients_items(self):
         # Using list_of_ingredients
-        if self.list_of_ingredients:
-            return self.list_of_ingredients
+        if self.ingredients:
+            return self.ingredients
 
 
 # TODO - phase2 if we need in the future by item

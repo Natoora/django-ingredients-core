@@ -10,7 +10,7 @@ class IngredientCoreTestCase(TestCase):
         self.ingredient = IngredientFactory.create(
             list_of_ingredients="Chickpeas 50%, Extra Virgin Olive Oil 26.7% and Milk",
             allergens="This product contains milk",
-            life_style=Ingredient.VEGAN,
+            dietary_info=Ingredient.VEGAN,
             custom_attrib="Apple",
         )
 
@@ -35,9 +35,9 @@ class IngredientCoreTestCase(TestCase):
 
     #  TODO, add more tests
 
-    # life_style
-    def test_life_style(self):
-        self.assertEqual(self.ingredient.life_style, "VEGAN")
+    # dietary_info
+    def test_dietary_info(self):
+        self.assertEqual(self.ingredient.dietary_info, "VEGAN")
 
     #  TODO, add more tests
 

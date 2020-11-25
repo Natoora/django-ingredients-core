@@ -10,7 +10,7 @@ class IngredientCore(models.Model):
     VEGETARIAN = "VEGETARIAN"
     KOSHER = "KOSHER"
 
-    LIFE_STYLE_CHOICES = (
+    DIETARY_INFO_CHOICES = (
         (VEGAN, "Vegan"),
         (VEGETARIAN, "Vegetarian"),
         (KOSHER, "Kosher"),
@@ -23,8 +23,14 @@ class IngredientCore(models.Model):
         help_text="If items are not used",
     )
     allergens = models.CharField(max_length=50, null=True, blank=True)
-    life_style = models.CharField(
-        max_length=30, choices=LIFE_STYLE_CHOICES, null=True, blank=True
+    dietary_info = models.CharField(
+        max_length=30, choices=DIETARY_INFO_CHOICES, null=True, blank=True
+    )
+    warning = models.CharField(
+        max_length=50,
+        null=True,
+        blank=True,
+        help_text="e.g: Once defrosted, do not refreeze",
     )
 
     class Meta:

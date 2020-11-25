@@ -9,4 +9,4 @@ class IngredientFactoryCore(factory.django.DjangoModelFactory):
 
     list_of_ingredients = factory.Faker("text")
     allergens = factory.Faker("text")
-    life_style = FuzzyChoice(IngredientCore.LIFE_STYLE_CHOICES)
+    dietary_info = FuzzyChoice(IngredientCore.DIETARY_INFO_CHOICES)

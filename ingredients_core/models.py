@@ -26,6 +26,9 @@ class IngredientCore(models.Model):
     dietary_info = models.CharField(
         max_length=30, choices=DIETARY_INFO_CHOICES, null=True, blank=True
     )
+    alcohol_content = models.CharField(
+        max_length=16, null=True, blank=True, help_text="e.g: 10% Vol"
+    )
     warning = models.CharField(
         max_length=50,
         null=True,
